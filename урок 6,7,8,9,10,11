@@ -1,0 +1,35 @@
+УРОК №6.
+Задание №1
+
+n_str = input("Сколько чисел будете вводить: ")
+n = int(n_str)
+
+# Заводим счетчик нулей
+zero_count = 0
+
+# Вводим и проверяем числа
+for i in range(n):
+  num_str = input("Введите число: ")
+  num = int(num_str)
+  if num == 0:
+    zero_count = zero_count + 1
+
+# Выводим результат
+print("Количество нулей:", zero_count)
+
+Задание №2
+
+x_str = input("Введите натуральное число: ")
+x = int(x_str)
+
+# Считаем делители
+divisor_count = 0
+for i in range(1, x + 1):
+  if x % i == 0:
+    divisor_count = divisor_count + 1
+
+# Выводим результат
+print("Количество делителей:", divisor_count)
+
+УРОК №7
+Задание №1
