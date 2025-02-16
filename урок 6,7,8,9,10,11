@@ -33,3 +33,252 @@ print("Количество делителей:", divisor_count)
 
 УРОК №7
 Задание №1
+
+# Получаем слово
+word = input("Введите слово: ")
+
+# Переворачиваем слово
+reversed_word = word[::-1]
+
+# Сравниваем слово с перевернутым
+if word == reversed_word:
+    print("yes")
+else:
+    print("no")
+
+Задание №2
+
+# Получаем строку
+string = input("Введите строку: ")
+
+# Убираем лишние пробелы
+new_string = ""
+space = False
+for char in string:
+    if char == " ":
+        if not space:
+            new_string = new_string + " "
+            space = True
+    else:
+        new_string = new_string + char
+        space = False
+
+# Выводим результат
+print(new_string)
+
+УРОК №8
+Задание №1
+# Переворачиваем массив чисел
+
+# Спрашиваем количество чисел
+n_str = input("Сколько чисел будете вводить: ")
+n = int(n_str)
+
+# Создаем массив
+numbers = []
+
+# Заполняем массив
+for i in range(n):
+    num_str = input("Введите число: ")
+    num = int(num_str)
+    numbers.append(num)
+
+# Переворачиваем массив
+reversed_numbers = numbers[::-1]
+
+# Выводим результат
+for num in reversed_numbers:
+    print(num)
+
+Задание №2
+# Меняем массив
+
+# Спрашиваем количество чисел
+n_str = input("Введите количество чисел: ")
+n = int(n_str)
+
+# Спрашиваем числа
+numbers_str = input("Введите числа через пробел: ")
+numbers = numbers_str.split()
+
+# Превращаем строки в числа
+for i in range(n):
+    numbers[i] = int(numbers[i])
+
+# Создаем новый массив
+new_numbers = []
+
+# Меняем порядок
+new_numbers.append(numbers[-1]) #последний элемент добавляем в начало
+del numbers[-1]                #последний элемент удаляем из списка
+
+#добавляем все остальные по порядку
+i=0
+while (i<n-1):
+    new_numbers.append(numbers[i])
+    i+=1
+
+# Выводим результат
+for num in new_numbers:
+    print(num, end=" ")
+
+УРОК №9
+Задание №1
+
+# Считаем разные числа
+
+# Спрашиваем количество чисел
+n_str = input("Сколько чисел будете вводить: ")
+n = int(n_str)
+
+# Спрашиваем числа
+numbers_str = input("Введите числа через пробел: ")
+numbers = numbers_str.split()
+
+# Превращаем строки в числа
+for i in range(n):
+    numbers[i] = int(numbers[i])
+
+# Считаем разные числа
+different_numbers = []
+for num in numbers:
+    if num not in different_numbers:
+        different_numbers.append(num)
+
+# Выводим результат
+print(len(different_numbers))
+
+Задание №2
+
+# Считаем общие числа в двух списках
+
+# Вводим первый список
+list1 = []
+while True:
+    try:
+        num_str = input()
+        num = int(num_str)
+        list1.append(num)
+    except:
+        break
+
+# Вводим второй список
+list2 = []
+while True:
+    try:
+        num_str = input()
+        num = int(num_str)
+        list2.append(num)
+    except:
+        break
+
+# Считаем общие числа
+count = 0
+for num1 in list1:
+    for num2 in list2:
+        if num1 == num2:
+            count = count + 1
+            break  # Чтобы не считать одно и то же число несколько раз
+
+# Выводим результат
+print(count)
+
+УРОК №10
+Задание №1
+
+# Наша база данных питомцев!
+
+# Создаем пустой словарик
+pets = {}
+
+# Спрашиваем имя питомца
+pet_name = input("Введите имя питомца: ")
+
+# Спрашиваем вид питомца
+pet_type = input("Введите вид питомца: ")
+
+# Спрашиваем возраст питомца
+pet_age_str = input("Введите возраст питомца: ")
+pet_age = int(pet_age_str)
+
+# Спрашиваем имя владельца
+owner_name = input("Введите имя владельца: ")
+
+
+# Определяем окончание для возраста
+if pet_age % 10 == 1 and pet_age % 100 != 11:
+    age_str = "год"
+else:
+    if 2 <= pet_age % 10 <= 4 and (pet_age % 100 < 10 or pet_age % 100 >= 20):
+        age_str = "года"
+    else:
+        age_str = "лет"
+
+
+# Заполняем словарь
+pets[pet_name] = {
+    "Вид питомца": pet_type,
+    "Возраст питомца": pet_age,
+    "Имя владельца": owner_name
+}
+
+
+# Создаем строку с информацией о питомце
+print(f"Это замечательный {pets[pet_name]['Вид питомца']} по кличке \"{pet_name}\". Возраст питомца: {pet_age} {age_str}. Имя владельца: {owner_name}")
+
+
+Задание №2
+
+# Создаем словарик со степенями чисел!
+
+# Создаем пустой словарик
+my_dict = {}
+
+# Заполняем словарик в цикле
+for i in range(10, -6, -1):
+    my_dict[i] = i ** i
+
+УРОК №11
+Задание №1
+
+def factorial(n):
+  """
+  Вычисляет факториал числа n.
+
+  Аргумент:
+    n: Натуральное целое число.
+
+  Возвращает:
+    Факториал числа n.
+  """
+  if n == 0:
+    return 1
+  else:
+    result = 1
+    for i in range(1, n + 1):
+      result = result * i
+    return result
+
+def create_factorial_list(n):
+  """
+  Создает список факториалов чисел от n до 1 в убывающем порядке.
+
+  Аргумент:
+    n: Натуральное целое число.
+
+  Возвращает:
+    Список факториалов чисел от n до 1.
+  """
+  factorial_list = []
+  for i in range(n, 0, -1):
+    factorial_list.append(factorial(i))
+  return factorial_list
+
+# Пример использования
+number = 3
+fact_number = factorial(number)
+result_list = create_factorial_list(fact_number)
+print(result_list)
+
+
+
